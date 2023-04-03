@@ -87,7 +87,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'KPIproject'
+        title: 'ประเมินKpi'
       }
     }
   }

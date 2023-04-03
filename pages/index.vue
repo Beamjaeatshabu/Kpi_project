@@ -25,25 +25,24 @@ export default {
       images: [
         {
           src:
-            'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2FsbHBhcGVyJTIwNGt8ZW58MHx8MHx8&w=1000&q=80',
+            'https://www.lppproperty.co.th/wp-content/uploads/2022/12/Photo-Banner-3.jpg',
           title: 'Image 1',
           link: 'https://unsplash.com/photos/4k-elnPHtEY',
         },
         {
           src:
-            'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2FsbHBhcGVyJTIwNGt8ZW58MHx8MHx8&w=1000&q=80',
-          title: 'Image 2',
+            'https://www.lppproperty.co.th/wp-content/uploads/2022/12/Photo-Banner-2-2.jpg',
           link: 'https://unsplash.com/photos/4k-elnPHtEY',
         },
         {
           src:
-            'https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2FsbHBhcGVyJTIwNGt8ZW58MHx8MHx8&w=1000&q=80',
+            'https://www.lppproperty.co.th/wp-content/uploads/2022/12/Photo-Banner-1-2.jpg',
           title: 'Image 3',
           link: 'https://unsplash.com/photos/4k-elnPHtEY',
         },
         {
           src:
-            'https://c4.wallpaperflare.com/wallpaper/410/867/750/vector-forest-sunset-forest-sunset-forest-wallpaper-preview.jpg',
+            'https://www.lppproperty.co.th/wp-content/uploads/2022/12/Photo-Banner-4-1.jpg',
           title: 'Image 4',
           link: 'https://unsplash.com/photos/4k-elnPHtEY',
 },

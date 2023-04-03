@@ -4,6 +4,7 @@
     <h2>หัวข้อหลักการประเมิน</h2>
     <div class="select-wrapper">
  <i class="mdi mdi-menu-down"></i>
+ <label for="evaluation-level">เลือกโครงการ:</label>
 <select v-model="selectedItem">
   <option disabled value="">-- โปรดเลือกรายการ --</option>
   <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
@@ -172,31 +173,37 @@ label {
 
 /* กำหนดรูปแบบเลือกตัวเลือก */
 select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
 }
 
 /* กำหนดรูปแบบช่องกรอกข้อมูล */
-.input  {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+input {
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
 }
 
 #evaluation-comment {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
 }
 
 label[for="evaluation-comment"] {
