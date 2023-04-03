@@ -44,7 +44,10 @@
     </v-footer>
   </v-app>
 </template>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ecb5d1d7b13a2a2b5e242a21cba9b9d4219058af
   
   <script>
   export default {
@@ -90,6 +93,7 @@
   }
   </script>
   
+<<<<<<< HEAD
   <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap');
 
@@ -100,3 +104,5 @@ body,
   font-family: 'Kanit', sans-serif;
 }
 </style>
+=======
+>>>>>>> ecb5d1d7b13a2a2b5e242a21cba9b9d4219058af
