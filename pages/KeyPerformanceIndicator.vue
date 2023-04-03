@@ -111,40 +111,39 @@ export default {
 </script>
 
 <style scoped>
-/* div .container {
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-/* กำหนดขนาดฟอนต์และรูปแบบของข้อความ */
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+.my-component {
+  font-family: 'Kanit', sans-serif;
+}
+
 h2 {
   font-size: 24px;
   font-weight: bold;
+  font-family: 'Kanit', sans-serif;
 }
 
 label {
   font-size: 18px;
   font-weight: bold;
+  font-family: 'Kanit', sans-serif;
 }
-  input[type="text"] {
-    box-sizing: border-box;
-    padding: 8px 12px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 100%;
-    margin-bottom: 10px;
-  }
 
-  .my-icon {
-    margin-bottom: 30px;
-    color: #fff;
+input[type="text"] {
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.my-icon {
+  margin-bottom: 30px;
+  color: #fff;
+  font-family: 'Kanit', sans-serif;
 }
 
 button {
@@ -160,43 +159,30 @@ button {
   margin-right: 10px;
   margin-bottom: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* เพิ่ม transition สำหรับเปลี่ยนสีพื้นหลัง */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Kanit', sans-serif;
 }
 
 button:hover {
   background-color: darkgreen;
 }
 
-  
-/* input[type="radio"] {
-    margin-right: 8px;
-    position: fixed;
-    opacity: 100;
-  }  */
-  
-/* button .my-icon {
-  display: none; /* ซ่อน icon ที่อยู่ภายในปุ่ม */
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 100%;
+}
 
-  table {
-    border-collapse: collapse;
-    margin-top: 20px;
-    width: 100%;
-  }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #ffffff;
-  }
-/*   
-  .v-btn .my-icon {
-  font-size: 24px;
-  color: #fff;
-} */
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-family: 'Kanit', sans-serif;
+}
+
+th {
+  background-color: #ffffff;
+  font-family: 'Kanit', sans-serif;
+}
 
 </style>
-

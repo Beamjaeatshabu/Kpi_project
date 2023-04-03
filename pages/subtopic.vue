@@ -153,19 +153,12 @@ methods: {
 };
 </script>
 
-
 <style scoped>
-/* div .container {
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
+/* กำหนดฟอนต์ให้กับตัวอักษรทั้งหมด */
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 /* กำหนดขนาดฟอนต์และรูปแบบของข้อความ */
 h2 {
   font-size: 24px;
@@ -213,17 +206,31 @@ label[for="evaluation-comment"] {
   margin-bottom: 12px;
 }
 
-/* กำหนดรูปแบบปุ่ม
+/* กำหนดรูปแบบปุ่ม */
 button {
-  background-color: #4caf50;
-  color: #fff;
-  border-radius: 8px;
-  border: none;
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
-  margin-right: 12px;
-} */
+  background-color: darkgreen;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+button:active {
+  background-color: #3d99a1;
+  transform: translateY(2px);
+}
 
 /* กำหนดรูปแบบตาราง */
 table {
@@ -242,44 +249,8 @@ th {
   background-color: #f2f2f2;
 }
 
-button {
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-button {
-background-color: darkgreen;
-border: none;
-color: white;
-padding: 12px 24px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer;
-transition: background-color 0.3s ease, transform 0.3s ease; /* เพิ่ม transition สำหรับเปลี่ยนสีพื้นหลัง */
-}
-
-button:hover {
-background-color: darkgreen;
-}
-
-button:active {
-background-color: #3d99a1;
-transform: translateY(2px);
-}
+/* ย้ายไอคอนแสดงผลจากขวาไปซ้าย */
 .mdi {
-  float: right;
+  float: left;
 }
 </style>
-
-
-
-
