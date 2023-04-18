@@ -44,12 +44,8 @@
     </v-footer>
   </v-app>
 </template>
-<<<<<<< HEAD
 
-=======
->>>>>>> ecb5d1d7b13a2a2b5e242a21cba9b9d4219058af
-  
-  <script>
+<script>
   export default {
     name: 'DefaultLayout',
     data () {
@@ -59,27 +55,27 @@
         fixed: false,
         items: [
           {
-            icon: 'mdi-apps',
+            icon: '',
             title: 'Home',
             to: '/'
           },
           {
-            icon: 'mdi-weather-night',
+            icon: '',
             title: 'หัวข้อหลักประเมินงานKpi',
             to: '/KeyPerformanceIndicator'
           },
           {
-            icon: 'mdi-rice',
+            icon: '',
             title: 'หัวข้อย่อยKpi',
             to: '/subtopic'
           },
           {
-            icon: 'mdi-emoticon-cool',
+            icon: '',
             title: 'ประเมินKpi',
             to: '/report'
           },
           {
-            icon: 'mdi-ghost',
+            icon: '',
             title: 'รายงาน',
             to: '/inspire'
           },
@@ -92,9 +88,8 @@
     }
   }
   </script>
-  
-<<<<<<< HEAD
-  <style scoped>
+
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap');
 
 /* Apply the font to the appropriate elements */
@@ -102,7 +97,19 @@ body,
 .v-toolbar__title,
 .v-list-item__title {
   font-family: 'Kanit', sans-serif;
+  color: white;
+}
+
+/* Change the background color of the toolbar */
+.v-toolbar {
+  background-color: #2a8445 !important;
+}
+
+/* Change the background color of the navigation drawer */
+.v-navigation-drawer--fixed.theme--light {
+  background-color: black;
+}
+.v-btn.v-btn--text.theme--light.v-size--default {
+  color: #ffffff;
 }
 </style>
-=======
->>>>>>> ecb5d1d7b13a2a2b5e242a21cba9b9d4219058af

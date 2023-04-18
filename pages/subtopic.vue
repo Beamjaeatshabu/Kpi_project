@@ -12,7 +12,7 @@
 
 </div>
     <div>
-      <label class="label" for="evaluation-title">หัวข้อประเมิน</label>
+      <label class="label" for="evaluation-title">หัวข้อประเมิน:</label>
       <input
         id="evaluation-title"
         v-model="evaluationTitle"
