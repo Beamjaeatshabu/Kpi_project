@@ -243,17 +243,28 @@ button:active {
 table {
   border-collapse: collapse;
   width: 100%;
+  font-family: 'Kanit', sans-serif;
 }
 
 th,
 td {
-  text-align: left;
+  text-align: center;
+  border: 1px solid #ddd;
   padding: 8px;
-  border-bottom: 1px solid #ddd;
+  font-family: 'Kanit', sans-serif;
 }
 
 th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
 }
 
 /* ย้ายไอคอนแสดงผลจากขวาไปซ้าย */

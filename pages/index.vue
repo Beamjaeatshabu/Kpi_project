@@ -1,18 +1,5 @@
 <template>
-  <div class="slideshow">
-    <transition-group tag="div" class="image-wrapper" :css="false" name="fade">
-      <div v-for="(image, index) in images" :key="index" v-if="currentIndex === index">
-        <a :href="image.link" target="_blank">
-          <img :src="image.src" :alt="image.title">
-        </a>
-        <div class="image-title">{{ image.title }}</div>
-      </div>
-    </transition-group>
-    <div class="controls">
-      <button class="prev" @click="prevImage">&#10094;</button>
-      <button class="next" @click="nextImage">&#10095;</button>
-    </div>
-  </div>
+
 </template>
 
 <script>

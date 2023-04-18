@@ -166,23 +166,31 @@ button {
 button:hover {
   background-color: darkgreen;
 }
-
 table {
   border-collapse: collapse;
-  margin-top: 20px;
   width: 100%;
+  font-family: 'Kanit', sans-serif;
 }
 
-th, td {
-  border: 1px solid #ccc;
+th,
+td {
+  text-align: center;
+  border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
   font-family: 'Kanit', sans-serif;
 }
 
 th {
-  background-color: #ffffff;
-  font-family: 'Kanit', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
 }
 
 </style>

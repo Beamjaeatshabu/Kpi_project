@@ -56,7 +56,7 @@
         items: [
           {
             icon: '',
-            title: 'Home',
+            title: 'หน้าหลัก',
             to: '/'
           },
           {
