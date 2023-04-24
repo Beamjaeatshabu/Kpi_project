@@ -26,7 +26,7 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <v-toolbar-title><img src="logolpp2.jpg"  height="40" alt="Logo"></v-toolbar-title>
       <v-spacer />
 
       <!-- ปุ่ม Logout -->

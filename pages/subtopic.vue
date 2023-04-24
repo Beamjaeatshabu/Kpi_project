@@ -1,65 +1,43 @@
 <template>
   <div class="container">
     <div>
-    <h2>หัวข้อหลักการประเมิน</h2>
-    <div class="select-wrapper">
- <i class="mdi mdi-menu-down"></i>
- <label for="evaluation-level">เลือกโครงการ:</label>
-<select v-model="selectedItem">
-  <option disabled value="">-- โปรดเลือกรายการ --</option>
-  <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
-</select>
-
-</div>
-    <div>
-      <label class="label" for="evaluation-title">หัวข้อประเมิน:</label>
-      <input
-        id="evaluation-title"
-        v-model="evaluationTitle"
-        class="input"
-        type="text"
-        name="evaluation-title"
-      />
-    </div>
-    
-    <div>
-      <h2>เกณฑ์การประเมิน</h2>
-      <div>
-        <i class="mdi mdi-menu-down"></i>
-        <label for="evaluation-level">เลือกระดับการประเมิน:</label>
-        <select
-          id="evaluation-level"
-          v-model="selectedLevel"
-          name="evaluation-level"
-        >
-        
-          <option disabled value=""
-            >-- โปรดเลือกระดับการประเมิน --</option
-          >
-          <option
-            v-for="(level, index) in evaluationLevels"
-            :key="index"
-            :value="level"
-          >
-            {{ level }}
-          </option>
+      <h2>หัวข้อหลักการประเมิน</h2>
+      <div class="select-wrapper">
+        <label for="evaluation-level">เลือกโครงการ:</label>
+        <select v-model="selectedItem" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+          <option disabled value="">-- โปรดเลือกรายการ --</option>
+          <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
         </select>
-        
+
       </div>
       <div>
-        <label for="evaluation-comment">ความคิดเห็น:</label>
-        <input
-          id="evaluation-comment"
-          v-model="comment"
-          type="text"
-          name="evaluation-comment"
-        />
+        <label class="label" for="evaluation-title">หัวข้อประเมิน:</label>
+        <input id="evaluation-title" v-model="evaluationTitle" class="input" type="text" name="evaluation-title" />
       </div>
-    </div>
-      <button @click="submit">ส่งเกณฑ์การประเมิน</button>
-      <button @click="save">บันทึกข้อมูล</button>
-      <button @click="cancel">ยกเลิก</button>
-      <button @click="back">กลับ</button>
+
+      <div>
+        <h2>เกณฑ์การประเมิน</h2>
+        <div>
+          <label for="evaluation-level">เลือกระดับการประเมิน:</label>
+          <select id="evaluation-level" v-model="selectedLevel" name="evaluation-level"
+            style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+
+            <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
+            <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">
+              {{ level }}
+            </option>
+          </select>
+
+        </div>
+        <div>
+          <label for="evaluation-comment">ความคิดเห็น:</label>
+          <input id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment" />
+        </div>
+      </div>
+      <button class="click" @click="back">กลับ</button>
+      <button class="click" @click="cancel">ยกเลิก</button>
+      <button class="click" @click="save">บันทึกข้อมูล</button> 
+      <button class="click" @click="submit">ส่งเกณฑ์การประเมิน</button>
     </div>
     <table v-if="showResult">
       <thead>
@@ -84,73 +62,73 @@
 
 <script scoped>
 export default {
-data() {
-  return {
-    selectedItem: "",
-    items: [
-      { label: "รายการที่ 1", value: "1" },
-      { label: "รายการที่ 2", value: "2" },
-      { label: "รายการที่ 3", value: "3" },
-    ],
-    evaluationTitle: "",
-    selectedLevel: "",
-    evaluationLevels: ["ดีมาก", "ดี", "พอใช้", "แย่"],
-    comment: "",
-    evaluations: [],
-    showResult: false,
-  };
-},
-methods: {
-  submit() {
-    if (
-      this.selectedItem === "" ||
-      this.evaluationTitle === "" ||
-      this.selectedLevel === ""
-    ) {
-      alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
-      return;
-    }
-    const evaluation = {
-      selectedItem: this.selectedItem,
-      evaluationTitle: this.evaluationTitle,
-      selectedLevel: this.selectedLevel,
-      comment: this.comment, // เพิ่ม comment ที่หายไป
+  data() {
+    return {
+      selectedItem: "",
+      items: [
+        { label: "รายการที่ 1", value: "1" },
+        { label: "รายการที่ 2", value: "2" },
+        { label: "รายการที่ 3", value: "3" },
+      ],
+      evaluationTitle: "",
+      selectedLevel: "",
+      evaluationLevels: ["ดีมาก", "ดี", "ปานกลาง", "พอใช้"],
+      comment: "",
+      evaluations: [],
+      showResult: false,
     };
-    this.evaluations.push(evaluation);
-    this.selectedItem = "";
-    this.evaluationTitle = "";
-    this.selectedLevel = "";
-    this.comment = "";
-    this.showResult = true;
   },
-  save() {
-    if (this.evaluations.length === 0) {
-      alert("ไม่มีข้อมูลให้บันทึก");
-      return;
-    }
-    alert("บันทึกข้อมูลสำเร็จ");
-    this.showData();
-  },
-  showData() {
-    if (this.evaluations.length === 0) {
-      alert("ไม่มีข้อมูลที่บันทึก");
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(this.evaluations);
-    }
-  },
-  cancel() {
-    this.selectedItem = "";
-    this.evaluationTitle = "";
-    this.selectedLevel = "";
-    this.comment = "";
-    this.evaluations = [];
-    this.showResult = false;
-  },
-  back () {
+  methods: {
+    submit() {
+      if (
+        this.selectedItem === "" ||
+        this.evaluationTitle === "" ||
+        this.selectedLevel === ""
+      ) {
+        alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
+        return;
+      }
+      const evaluation = {
+        selectedItem: this.selectedItem,
+        evaluationTitle: this.evaluationTitle,
+        selectedLevel: this.selectedLevel,
+        comment: this.comment, // เพิ่ม comment ที่หายไป
+      };
+      this.evaluations.push(evaluation);
+      this.selectedItem = "";
+      this.evaluationTitle = "";
+      this.selectedLevel = "";
+      this.comment = "";
+      this.showResult = true;
+    },
+    save() {
+      if (this.evaluations.length === 0) {
+        alert("ไม่มีข้อมูลบันทึก");
+        return;
+      }
+      alert("บันทึกข้อมูลสำเร็จ");
+      this.showData();
+    },
+    showData() {
+      if (this.evaluations.length === 0) {
+        alert("ไม่มีข้อมูลที่บันทึก");
+      } else {
+        // eslint-disable-next-line no-console
+        console.log(this.evaluations);
+      }
+    },
+    cancel() {
+      this.selectedItem = "";
+      this.evaluationTitle = "";
+      this.selectedLevel = "";
+      this.comment = "";
+      this.evaluations = [];
+      this.showResult = false;
+    },
+    back() {
       this.$router.push('/')
+    },
   },
-},
 };
 </script>
 
@@ -237,6 +215,10 @@ button:hover {
 button:active {
   background-color: #3d99a1;
   transform: translateY(2px);
+}
+
+.click {
+  float: right;
 }
 
 /* กำหนดรูปแบบตาราง */

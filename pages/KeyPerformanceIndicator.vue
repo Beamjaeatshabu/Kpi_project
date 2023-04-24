@@ -1,55 +1,60 @@
 <template>
   <div class="container">
-  <div>
-    <form>
-      <div>
-        <label for="short-title">หัวข้อย่อ:</label>
-        <input id="short-title" v-model="shortTitle" type="text" />
-      </div>
-      <div>
-        <label for="sub-title">ชื่อหัวข้อย่อย:</label>
-        <input id="sub-title" v-model="subTitle" type="text" />
-      </div>
-      <div>
-        <label for="description">คำอธิบาย:</label>
-        <input id="description" v-model="description" type="text" />
-        <v-btn icon @click="submit">
-          <v-icon class="my-icon white--text">mdi-plus-box</v-icon>
-        </v-btn>
-      </div>
-      <div>
-        <input id="active" v-model="selectedOption" type="radio" value="active" />
-        <label for="active">Active</label>
-        <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
-        <label for="inactive">Inactive</label>
-      </div>
-    </form>
     <div>
-      <button @click="save">บันทึก</button>
-      <button @click="cancel">ยกเลิก</button>
-      <button @click="back">กลับ</button>
+      <form>
+        <div>
+          <label for="short-title">หัวข้อย่อย:</label>
+          <input id="short-title" v-model="shortTitle" type="text" />
+        </div>
+        <div>
+          <label for="sub-title">ชื่อหัวข้อย่อย:</label>
+          <input id="sub-title" v-model="subTitle" type="text" />
+        </div>
+        <div>
+          <label for="description">คำอธิบาย:</label>
+          <input id="description" v-model="description" type="text" />
+          <div>
+            <input id="active" v-model="selectedOption" type="radio" value="active" />
+            <label for="active">Active</label>
+            <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
+            <label for="inactive">Inactive</label>
+          </div>
+          <div class="button-container">
+            <v-btn icon @click="submit">
+              <v-icon class="my-icon white--text">mdi-plus-box</v-icon>
+            </v-btn>
+            <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
+              เพื่อแสดงข้อมูลในตาราง</p>
+          </div>
+        </div>
+
+      </form>
+      <div>
+        <button @click="back" class="back">กลับ</button>
+        <button @click="cancel" class="cancel">ยกเลิก</button>
+        <button @click="save" class="save">บันทึก</button>
+      </div>
+      <div v-if="showTable" class="datagrid">
+        <table>
+          <thead>
+            <tr>
+              <th>หัวข้อย่อ</th>
+              <th>ชื่อหัวข้อย่อย</th>
+              <th>คำอธิบาย</th>
+              <th>สถานะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in items" :key="index">
+              <td>{{ item.shortTitle }}</td>
+              <td>{{ item.subTitle }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div v-if="showTable" class="datagrid">
-      <table>
-        <thead>
-          <tr>
-            <th>หัวข้อย่อ</th>
-            <th>ชื่อหัวข้อย่อย</th>
-            <th>คำอธิบาย</th>
-            <th>สถานะ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in items" :key="index">
-            <td>{{ item.shortTitle }}</td>
-            <td>{{ item.subTitle }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.status }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
   </div>
 </template>
 
@@ -70,7 +75,7 @@ export default {
     submit() {
       if (!this.shortTitle || !this.subTitle || !this.description) {
         alert('กรุณากรอกข้อมูลให้ครบทุกช่อง')
-        return
+        return;
       }
 
       const newItem = {
@@ -92,7 +97,13 @@ export default {
       this.items = []
     },
     save() {
+      if (!this.showTable) {
+        alert('กรุณากดเครื่องหมาย + เพื่อแสดงข้อมูลในตาราง')
+        return;
+      }
+
       // Code to save data goes here
+      alert("บันทึกข้อมูลสำเร็จ");
     },
     clearForm() {
       this.shortTitle = ''
@@ -103,9 +114,9 @@ export default {
     hideTable() {
       this.showTable = false
     },
-    back () {
+    back() {
       this.$router.push('/')
-  },
+    },
   }
 }
 </script>
@@ -146,6 +157,21 @@ input[type="text"] {
   font-family: 'Kanit', sans-serif;
 }
 
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.warn {
+  display: none;
+  color: red;
+  margin: 0;
+}
+
+.show {
+  display: block;
+}
+
 button {
   background-color: darkgreen;
   border: none;
@@ -166,6 +192,19 @@ button {
 button:hover {
   background-color: darkgreen;
 }
+
+.cancel {
+  float: right;
+}
+
+.save {
+  float: right;
+}
+
+.back {
+  float: right;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -192,5 +231,4 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #ddd;
 }
-
 </style>

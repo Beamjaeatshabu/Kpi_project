@@ -3,16 +3,16 @@
   <div class="center">
     <br>
     <div>
-      <label for="abbrSelectBox">ชื่อนิติ (ชื่อย่อ)▼: </label>
-      <select id="abbrSelectBox">
+      <label for="abbrSelectBox">ชื่อนิติ (ชื่อย่อ): </label>
+      <select id="abbrSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
         <option value="option1">ตัวเลือกที่ 1</option>
         <option value="option2">ตัวเลือกที่ 2</option>
       </select>
     </div>
     <br>
     <div>
-      <label for="thNameSelectBox">ชื่อนิติบุคคลภาษาไทย▼: </label>
-      <select id="thNameSelectBox">
+      <label for="thNameSelectBox">ชื่อนิติบุคคลภาษาไทย: </label>
+      <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
         <option value="option1">ตัวเลือกที่ 1</option>
         <option value="option2">ตัวเลือกที่ 2</option>
       </select>
@@ -22,33 +22,34 @@
     <form>
       <table>
         <thead>
-        <th colspan="5" style="text-align:center;" id="q-select" > 
-          <div class="select-wrapper">
-            <select id="q-select" v-model="selectedQuarter" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
-              <option value="Q1"> Q1</option>
-              <option value="Q2"> Q2</option>
-              <option value="Q3"> Q3</option>
-              <option value="Q4"> Q4</option>
-            </select>
-          </div>
-        </th>
-        <tr>
-          <th>รายการการประเมิน</th>
-          <th v-if="selectedQuarter === 'Q1'">มกราคม</th>
-          <th v-if="selectedQuarter === 'Q1'">กุมภาพันธุ์</th>
-          <th v-if="selectedQuarter === 'Q1'">มีนาคม</th>
-          <th v-if="selectedQuarter === 'Q2'">เมษายน</th>
-          <th v-if="selectedQuarter === 'Q2'">พฤษภาคม</th>
-          <th v-if="selectedQuarter === 'Q2'">มิถุนายน</th>
-          <th v-if="selectedQuarter === 'Q3'">กรกฎาคม</th>
-          <th v-if="selectedQuarter === 'Q3'">สิงหาคม</th>
-          <th v-if="selectedQuarter === 'Q3'">กันยายน</th>
-          <th v-if="selectedQuarter === 'Q4'">ตุลาคม</th>
-          <th v-if="selectedQuarter === 'Q4'">พฤศจิกายน</th>
-          <th v-if="selectedQuarter === 'Q4'">ธันวาคม</th>
-          <th>target</th>
-        </tr>
-      </thead>
+          <th colspan="5" style="text-align:center;" id="q-select">
+            <div class="select-wrapper">
+              <select id="q-select" v-model="selectedQuarter"
+                style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+                <option value="Q1"> Q1</option>
+                <option value="Q2"> Q2</option>
+                <option value="Q3"> Q3</option>
+                <option value="Q4"> Q4</option>
+              </select>
+            </div>
+          </th>
+          <tr class="my-table-header">
+            <th class="manulist">รายการประเมิน</th>
+            <th v-if="selectedQuarter === 'Q1'">มกราคม   </th>
+            <th v-if="selectedQuarter === 'Q1'">กุมภาพันธ์ </th>
+            <th v-if="selectedQuarter === 'Q1'">มีนาคม   </th>
+            <th v-if="selectedQuarter === 'Q2'">เมษายน  </th>
+            <th v-if="selectedQuarter === 'Q2'">พฤษภาคม</th>
+            <th v-if="selectedQuarter === 'Q2'">มิถุนายน  </th>
+            <th v-if="selectedQuarter === 'Q3'">กรกฎาคม </th>
+            <th v-if="selectedQuarter === 'Q3'">สิงหาคม  </th>
+            <th v-if="selectedQuarter === 'Q3'">กันยายน  </th>
+            <th v-if="selectedQuarter === 'Q4'">ตุลาคม   </th>
+            <th v-if="selectedQuarter === 'Q4'">พฤศจิกายน</th>
+            <th v-if="selectedQuarter === 'Q4'">ธันวาคม   </th>
+            <th>target</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
             <td style="padding: 5px; text-align: left;">
@@ -119,9 +120,9 @@
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
-    
-            <th colspan="6">การดำเนินงานของนิติเป็นไปตามกำหนด</th>
-    
+
+          <th colspan="6">การดำเนินงานของนิติเป็นไปตามกำหนด</th>
+
           <tr>
             <td style=" padding: 5px; text-align: left;">
               ระยะเวลาในการเปิดประชุมนับแต่เริ่มประชุม(นาที) <span>(น้ำหนัก 3)</span>
@@ -139,27 +140,8 @@
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
-          <tr>
-            <td style=" padding: 5px; text-align: left;">
-              ความเข้าใจในการอพยพหนีไฟ (ผ่านแบบสอบถาม) <span>(น้ำหนัก 3)</span>
-            </td>
-            <td>
-              <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
-            </td>
-          <tr>
-          </tr>
-          <tr> 
           <td style=" padding: 5px; text-align: left;">
-            การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล. <span>(น้ำหนัก 3)</span>
+            ความเข้าใจในการอพยพหนีไฟ (ผ่านแบบสอบถาม) <span>(น้ำหนัก 3)</span>
           </td>
           <td>
             <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
@@ -171,6 +153,26 @@
             <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
           </td>
           <td>
+            <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
+          </td>
+          <tr>
+
+          </tr>
+
+          <tr>
+            <td style=" padding: 5px; text-align: left;">
+              การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล. <span>(น้ำหนัก 3)</span>
+            </td>
+            <td>
+              <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
+            </td>
+            <td>
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
@@ -196,7 +198,8 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การคัดแยกขยะรีไซต์เคิลเทียบขยะทั้งหมด <span>(น้ำหนัก 5)</span>
+              การคัดแยกขยะรีไซเคิล เทียบขยะทั้งหมด <span>(น้ำหนัก 5)</span>
+            </td>
             <td>
               <input type="text" placeholder="ปริมาณขยะทั้งหมด">
               <br>
@@ -205,14 +208,14 @@
               <br>
               <br>
               <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
-              </td>
-              <td>
-                <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
-              </td>
-              <td>
-                <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
-              </td>
-              <td>
+            </td>
+            <td>
+              <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
+            </td>
+            <td>
+              <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
+            </td>
+            <td>
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
@@ -267,9 +270,9 @@
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
-        
-            <th colspan="5">ข้อร้องเรียน </th>
-        
+
+          <th colspan="5">ข้อร้องเรียน </th>
+
           <tr>
             <td style=" padding: 5px; text-align: left;">
               จำนวนข้อร้องเรียนเรื่อง Service Miand <span>(น้ำหนัก 3)</span>
@@ -330,8 +333,9 @@
       </table>
     </form>
     <br>
-    <button class="submit">ยืนยัน</button>
     <button class="cancle">ยกเลิก</button>
+    <button class="submit">บันทึก</button>
+
   </div>
 </template>
 <style scoped>
@@ -374,25 +378,46 @@ th {
   color: white;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+th.manulist {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  display: flex;
+}
+.q1-month {
+flex: 1;
 }
 
-tbody tr:hover {
-  background-color: #ddd;
+.q2-month {
+flex: 1;
 }
+
+.q3-month {
+flex: 1;
+}
+
+.q4-month {
+flex: 1;
+}
+
+.target-cell {
+flex: 1;
+}
+
+
 
 input[type="number"],
 input[type="text"] {
-width: 100%;
-margin: 8px 0;
-box-sizing: border-box;
-border-radius: 4px;
-background-color: #f2f2f2;
-border: 1px solid #1d1b1b;
-border-radius: 3px;
-color: #000000; /* เพิ่มโค้ดสีข้อความ */
-font-family: 'Kanit', sans-serif;
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  border: 1px solid #1d1b1b;
+  border-radius: 3px;
+  color: #000000;
+  /* เพิ่มโค้ดสีข้อความ */
+  font-family: 'Kanit', sans-serif;
 }
 
 
@@ -417,14 +442,61 @@ button:hover {
   background-color: darkgreen;
 }
 
+.cancle {
+  float: right;
+}
+
+.submit {
+  float: right;
+}
+
+
 #q-select {
-    text-align: center;
-    color: rgb(255, 250, 250);
-  }
-  #q-select option {
+  width: 70px;
+  /* ปรับขนาดของเลือก Q1-Q4 ให้คงที่ */
+  text-align: center;
+  color: rgb(255, 250, 250);
+}
+
+#q-select option {
   color: #000;
 }
 
+#q-select select {
+  border: none;
+}
+
+tr.my-table-header>th {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.my-table-header th {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: 'Kanit', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.my-table-header td {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: 'Kanit', sans-serif;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
 </style>
 
 <script scoped>
