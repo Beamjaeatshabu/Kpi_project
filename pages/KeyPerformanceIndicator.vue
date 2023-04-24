@@ -21,7 +21,7 @@
           </div>
           <div class="button-container">
             <v-btn icon @click="submit">
-              <v-icon class="my-icon white--text">mdi-plus-box</v-icon>
+              <v-icon  style="color: white; width: 30px; height: 20px;" >mdi-plus-box</v-icon>
             </v-btn>
             <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
               เพื่อแสดงข้อมูลในตาราง</p>
@@ -123,7 +123,6 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-
 .my-component {
   font-family: 'Kanit', sans-serif;
 }
@@ -161,16 +160,13 @@ textarea {
   resize: none;
 }
 
-.my-icon {
-  margin-bottom: 30px;
-  color: #fff;
-  font-family: 'Kanit', sans-serif;
-}
+
 
 .button-container {
   display: flex;
   align-items: center;
 }
+
 
 .warn {
   display: none;
