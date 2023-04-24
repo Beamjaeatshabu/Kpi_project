@@ -3,7 +3,7 @@
     <div>
       <h2>หัวข้อหลักการประเมิน</h2>
       <div class="select-wrapper">
-        <label for="evaluation-level">เลือกโครงการ:</label>
+        <label for="evaluation-level">หัวข้อหลักการประเมิน:</label>
         <select v-model="selectedItem" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
           <option disabled value="">-- โปรดเลือกรายการ --</option>
           <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
@@ -31,7 +31,9 @@
         </div>
         <div>
           <label for="evaluation-comment">ความคิดเห็น:</label>
-          <input id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment" />
+          <textarea input id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment">  
+            
+          </textarea>
         </div>
       </div>
       <button class="click" @click="back">กลับ</button>
@@ -182,6 +184,16 @@ input {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
 }
 
 label[for="evaluation-comment"] {

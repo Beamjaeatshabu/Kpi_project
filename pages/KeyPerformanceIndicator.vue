@@ -12,7 +12,7 @@
         </div>
         <div>
           <label for="description">คำอธิบาย:</label>
-          <input id="description" v-model="description" type="text" />
+          <textarea input id="description" v-model="description" type="text"></textarea>
           <div>
             <input id="active" v-model="selectedOption" type="radio" value="active" />
             <label for="active">Active</label>
@@ -149,6 +149,16 @@ input[type="text"] {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
 }
 
 .my-icon {

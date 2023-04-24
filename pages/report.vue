@@ -35,18 +35,18 @@
           </th>
           <tr class="my-table-header">
             <th class="manulist">รายการประเมิน</th>
-            <th v-if="selectedQuarter === 'Q1'">มกราคม   </th>
-            <th v-if="selectedQuarter === 'Q1'">กุมภาพันธ์ </th>
-            <th v-if="selectedQuarter === 'Q1'">มีนาคม   </th>
-            <th v-if="selectedQuarter === 'Q2'">เมษายน  </th>
-            <th v-if="selectedQuarter === 'Q2'">พฤษภาคม</th>
-            <th v-if="selectedQuarter === 'Q2'">มิถุนายน  </th>
-            <th v-if="selectedQuarter === 'Q3'">กรกฎาคม </th>
-            <th v-if="selectedQuarter === 'Q3'">สิงหาคม  </th>
-            <th v-if="selectedQuarter === 'Q3'">กันยายน  </th>
-            <th v-if="selectedQuarter === 'Q4'">ตุลาคม   </th>
-            <th v-if="selectedQuarter === 'Q4'">พฤศจิกายน</th>
-            <th v-if="selectedQuarter === 'Q4'">ธันวาคม   </th>
+            <th class="M1" v-if="selectedQuarter === 'Q1'">มกราคม </th>
+            <th class="M1" v-if="selectedQuarter === 'Q1'">กุมภาพันธ์ </th>
+            <th class="M1" v-if="selectedQuarter === 'Q1'">มีนาคม </th>
+            <th class="M2" v-if="selectedQuarter === 'Q2'">เมษายน </th>
+            <th class="M2" v-if="selectedQuarter === 'Q2'">พฤษภาคม</th>
+            <th class="M2" v-if="selectedQuarter === 'Q2'">มิถุนายน </th>
+            <th class="M3" v-if="selectedQuarter === 'Q3'">กรกฎาคม </th>
+            <th class="M3" v-if="selectedQuarter === 'Q3'">สิงหาคม </th>
+            <th class="M3" v-if="selectedQuarter === 'Q3'">กันยายน </th>
+            <th class="M4" v-if="selectedQuarter === 'Q4'">ตุลาคม </th>
+            <th class="M4" v-if="selectedQuarter === 'Q4'">พฤศจิกายน</th>
+            <th class="M4" v-if="selectedQuarter === 'Q4'">ธันวาคม </th>
             <th>target</th>
           </tr>
         </thead>
@@ -275,7 +275,7 @@
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              จำนวนข้อร้องเรียนเรื่อง Service Miand <span>(น้ำหนัก 3)</span>
+              จำนวนข้อร้องเรียนเรื่อง Service Mind <span>(น้ำหนัก 3)</span>
             </td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
@@ -351,6 +351,7 @@ label {
 }
 
 select {
+
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #ccc;
@@ -360,6 +361,7 @@ select {
 }
 
 table {
+
   border-collapse: collapse;
   width: 100%;
   font-family: 'Kanit', sans-serif;
@@ -374,34 +376,15 @@ td {
 }
 
 th {
+  /* position: fixed; */
   background-color: #4CAF50;
   color: white;
 }
 
 th.manulist {
-  position: sticky;
+  position: static;
   top: 0;
   background-color: white;
-  display: flex;
-}
-.q1-month {
-flex: 1;
-}
-
-.q2-month {
-flex: 1;
-}
-
-.q3-month {
-flex: 1;
-}
-
-.q4-month {
-flex: 1;
-}
-
-.target-cell {
-flex: 1;
 }
 
 
@@ -481,14 +464,26 @@ tr.my-table-header>th {
   background-color: #4CAF50;
   color: white;
 }
-
-
 .my-table-header td {
+  width: 100px;
   text-align: center;
   border: 1px solid #ddd;
   padding: 8px;
   font-family: 'Kanit', sans-serif;
 }
+.M1{
+  width: 150px;
+}
+.M2{
+  width: 150px;
+}
+.M3{
+  width: 150px;
+}
+.M4{
+  width: 150px;
+}
+
 
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
