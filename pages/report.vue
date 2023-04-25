@@ -18,6 +18,42 @@
       </select>
     </div>
     <br>
+    <div class="container1">
+      <div class="m">
+        <label for="thNameSelectBox">เดือน</label>
+        <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+          <option value="01">มกราคม</option>
+          <option value="02">กุมภาพันธ์</option>
+          <option value="03">มีนาคม</option>
+          <option value="04">เมษายน</option>
+          <option value="05">พฤษภาคม</option>
+          <option value="06">มิถุนายน</option>
+          <option value="07">กรกฎาคม</option>
+          <option value="08">สิงหาคม</option>
+          <option value="09">กันยายน</option>
+          <option value="10">ตุลาคม</option>
+          <option value="11">พฤศจิกายน</option>
+          <option value="12">ธันวาคม</option>
+        </select>
+      </div>
+      <div class="q">
+        <label for="thNameSelectBox">quarter</label>
+        <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+          <option value="Q1"> Q1</option>
+          <option value="Q2"> Q2</option>
+          <option value="Q3"> Q3</option>
+          <option value="Q4"> Q4</option>
+        </select>
+      </div>
+      <div class="y">
+        <label for="thNameSelectBox">year</label>
+        <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+          <option value="option1">ตัวเลือกที่ 1</option>
+          <option value="option2">ตัวเลือกที่ 2</option>
+        </select>
+      </div>
+    </div>
+    <br>
     <br>
     <form>
       <table>
@@ -34,11 +70,11 @@
             </div>
           </th>
           <tr>
-          <th rowspan="2" >รายการประเมิน</th>
-          <th rowspan="2" class="actual">น้ำหนัก</th>
-          <th colspan="3">ผล</th>
-          <th rowspan="2">target</th>
-        </tr>
+            <th rowspan="2">รายการประเมิน</th>
+            <th rowspan="2" class="actual">น้ำหนัก</th>
+            <th colspan="3">ผล</th>
+            <th rowspan="2">target</th>
+          </tr>
           <tr class="my-table-header">
             <th class="M1" v-if="selectedQuarter === 'Q1'">มกราคม </th>
             <th class="M1" v-if="selectedQuarter === 'Q1'">กุมภาพันธ์ </th>
@@ -75,7 +111,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดเก็บหนี้ประจำปี 2556 
+              การจัดเก็บหนี้ประจำปี 2556
             </td>
             <td>น้ำหนัก 5</td>
             <td>
@@ -150,7 +186,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ความเข้าใจในการอพยพหนีไฟ 
+              ความเข้าใจในการอพยพหนีไฟ
             </td>
             <td>น้ำหนัก 3</td>
             <td>
@@ -168,7 +204,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล. 
+              การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล.
             </td>
             <td>น้ำหนัก 3</td>
             <td>
@@ -189,7 +225,7 @@
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ผลวิเคราะห์คุณภาพน้ำทิ้งไม่ผ่านเกณฑ์ (ผ่าน = 0 / ไม่ผ่าน =1) 
+              ผลวิเคราะห์คุณภาพน้ำทิ้งไม่ผ่านเกณฑ์ (ผ่าน = 0 / ไม่ผ่าน =1)
             </td>
             <td>น้ำหนัก 5 </td>
             <td>
@@ -207,7 +243,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การคัดแยกขยะรีไซเคิล เทียบขยะทั้งหมด 
+              การคัดแยกขยะรีไซเคิล เทียบขยะทั้งหมด
             </td>
             <td> น้ำหนัก 5 </td>
             <td>
@@ -231,7 +267,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              จำนวนครั้งในการซักซ้อมเหตุฉุกเฉินของทีมงาน 1 ครั้ง / ไตรมาส 
+              จำนวนครั้งในการซักซ้อมเหตุฉุกเฉินของทีมงาน 1 ครั้ง / ไตรมาส
             </td>
             <td>น้ำหนัก 5 </td>
             <td>
@@ -249,7 +285,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ความพึงพอใจจากเจ้าของร่วม 
+              ความพึงพอใจจากเจ้าของร่วม
             </td>
             <td>น้ำหนัก 7</td>
             <td>
@@ -267,7 +303,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ความพึงพอใจจากคณะกรรมการ 
+              ความพึงพอใจจากคณะกรรมการ
             </td>
             <td>น้ำหนัก 8</td>
             <td>
@@ -288,7 +324,7 @@
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              จำนวนข้อร้องเรียนเรื่อง Service Mind 
+              จำนวนข้อร้องเรียนเรื่อง Service Mind
             </td>
             <td>น้ำหนัก 3</td>
             <td>
@@ -306,7 +342,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ข้อร้องเรียนด้าน Service น้อยกว่าปี 2565 
+              ข้อร้องเรียนด้าน Service น้อยกว่าปี 2565
             </td>
             <td>น้ำหนัก 3</td>
             <td>
@@ -324,7 +360,7 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ผลการตรวจมาตรฐานการทำงานจาก QA ไม่ผ่านเกณฑ์ 
+              ผลการตรวจมาตรฐานการทำงานจาก QA ไม่ผ่านเกณฑ์
             </td>
             <td>น้ำหนัก 30</td>
             <td>
@@ -395,6 +431,7 @@ th {
   background-color: #4CAF50;
   color: white;
 }
+
 input[type="number"],
 input[type="text"] {
   width: 100%;
@@ -470,6 +507,7 @@ tr.my-table-header>th {
   background-color: #4CAF50;
   color: white;
 }
+
 .my-table-header td {
   width: 100px;
   text-align: center;
@@ -477,19 +515,18 @@ tr.my-table-header>th {
   padding: 8px;
   font-family: 'Kanit', sans-serif;
 }
-.M1{
+.M1 {
   width: 150px;
 }
-.M2{
+.M2 {
   width: 150px;
 }
-.M3{
+.M3 {
   width: 150px;
 }
-.M4{
+.M4 {
   width: 150px;
 }
-
 .actual {
   width: 150px;
 }
@@ -501,9 +538,26 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #ddd;
 }
+
+.container1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* แบ่ง column เป็นสองส่วน */
+  gap: 10px;
+  /* เว้นระยะห่างระหว่างสอง element */
+}
+
+
+.m,
+.q,
+.y {
+  grid-row: 1;
+  /* ให้ทั้งสาม element อยู่ใน row เดียวกัน */
+}
 </style>
 
 <script scoped>
+
 export default {
   data() {
     return {

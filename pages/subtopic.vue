@@ -24,7 +24,7 @@
             <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
           </select>
           <label for="evaluation-comment"> </label>
-          <input class="comment1" id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment"></input>
+          <input class="comment1" id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment">
         </div>
       </div>
 
