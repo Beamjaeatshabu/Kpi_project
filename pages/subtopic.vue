@@ -8,8 +8,8 @@
           <option disabled value="">-- โปรดเลือกรายการ --</option>
           <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
         </select>
-
       </div>
+
       <div>
         <label class="label" for="evaluation-title">หัวข้อประเมิน:</label>
         <input id="evaluation-title" v-model="evaluationTitle" class="input" type="text" name="evaluation-title" />
@@ -17,30 +17,23 @@
 
       <div>
         <h2>เกณฑ์การประเมิน</h2>
-        <div>
-          <label for="evaluation-level">เลือกระดับการประเมิน:</label>
-          <select id="evaluation-level" v-model="selectedLevel" name="evaluation-level"
-            style="-webkit-appearance: listbox; -moz-appearance: listbox;">
-
+        <label for="evaluation-level">เลือกระดับการประเมิน:</label>
+        <div class="container1">
+          <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
             <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
-            <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">
-              {{ level }}
-            </option>
+            <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
           </select>
-
-        </div>
-        <div>
-          <label for="evaluation-comment">ความคิดเห็น:</label>
-          <textarea input id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment">  
-            
-          </textarea>
+          <label for="evaluation-comment"> </label>
+          <input class="comment1" id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment"></input>
         </div>
       </div>
+
       <button class="click" @click="back">กลับ</button>
       <button class="click" @click="cancel">ยกเลิก</button>
-      <button class="click" @click="save">บันทึกข้อมูล</button> 
-      <button class="click" @click="submit">ส่งเกณฑ์การประเมิน</button>
+      <button class="click" @click="save">บันทึกข้อมูล</button>
+      <button class="click" @click="submit">เพิ่ม</button>
     </div>
+
     <table v-if="showResult">
       <thead>
         <tr>
@@ -74,7 +67,7 @@ export default {
       ],
       evaluationTitle: "",
       selectedLevel: "",
-      evaluationLevels: ["ดีมาก", "ดี", "ปานกลาง", "พอใช้"],
+      evaluationLevels: ["<>", "≥", "≠"],
       comment: "",
       evaluations: [],
       showResult: false,
@@ -185,16 +178,22 @@ input {
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
 }
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  resize: none;
+
+.container1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* แบ่ง column เป็นสองส่วน */
+  gap: 10px;
+  /* เว้นระยะห่างระหว่างสอง element */
 }
+
+#evaluation-level,
+#evaluation-comment {
+  grid-row: 1;
+  /* ให้ทั้งสอง element อยู่ใน row เดียวกัน */
+}
+
+
 
 label[for="evaluation-comment"] {
   font-size: 18px;

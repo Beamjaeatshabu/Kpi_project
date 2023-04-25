@@ -22,7 +22,7 @@
     <form>
       <table>
         <thead>
-          <th colspan="5" style="text-align:center;" id="q-select">
+          <th colspan="7" style="text-align:center;" id="q-select">
             <div class="select-wrapper">
               <select id="q-select" v-model="selectedQuarter"
                 style="-webkit-appearance: listbox; -moz-appearance: listbox;">
@@ -33,8 +33,13 @@
               </select>
             </div>
           </th>
+          <tr>
+          <th rowspan="2" >รายการประเมิน</th>
+          <th rowspan="2" class="actual">น้ำหนัก</th>
+          <th colspan="3">ผล</th>
+          <th rowspan="2">target</th>
+        </tr>
           <tr class="my-table-header">
-            <th class="manulist">รายการประเมิน</th>
             <th class="M1" v-if="selectedQuarter === 'Q1'">มกราคม </th>
             <th class="M1" v-if="selectedQuarter === 'Q1'">กุมภาพันธ์ </th>
             <th class="M1" v-if="selectedQuarter === 'Q1'">มีนาคม </th>
@@ -47,15 +52,14 @@
             <th class="M4" v-if="selectedQuarter === 'Q4'">ตุลาคม </th>
             <th class="M4" v-if="selectedQuarter === 'Q4'">พฤศจิกายน</th>
             <th class="M4" v-if="selectedQuarter === 'Q4'">ธันวาคม </th>
-            <th>target</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td style="padding: 5px; text-align: left;">
-              จำนวนครั้งการเกิด Break down <span>(น้ำหนัก 10)</span>
+              จำนวนครั้งการเกิด Break down
             </td>
-
+            <td>น้ำหนัก 10</td>
             <td>
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
@@ -71,8 +75,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดเก็บหนี้ประจำปี 2556 <span>(น้ำหนัก 5)</span>
+              การจัดเก็บหนี้ประจำปี 2556 
             </td>
+            <td>น้ำหนัก 5</td>
             <td>
               <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
             </td>
@@ -88,8 +93,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดเก็บหนี้ต่ำกว่ามาตรฐานของหนี้ค้าง ณ วันปิดรอบงบนิติฯ <span>(น้ำหนัก 5)</span>
+              การจัดเก็บหนี้ต่ำกว่ามาตรฐานของหนี้ค้าง ณ วันปิดรอบงบนิติฯ
             </td>
+            <td>น้ำหนัก 5</td>
             <td>
               <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
             </td>
@@ -105,8 +111,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดเก็บรายรับค่าชดเชยพื้นที่ส่วนกลางเป็นไปตามเงื่อนไขสัญญา<span>(น้ำหนัก 5)</span>
+              การจัดเก็บรายรับค่าชดเชยพื้นที่ส่วนกลางเป็นไปตามเงื่อนไขสัญญา
             </td>
+            <td>น้ำหนัก 5</td>
             <td>
               <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
             </td>
@@ -125,8 +132,9 @@
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ระยะเวลาในการเปิดประชุมนับแต่เริ่มประชุม(นาที) <span>(น้ำหนัก 3)</span>
+              ระยะเวลาในการเปิดประชุมนับแต่เริ่มประชุม(นาที)
             </td>
+            <td>น้ำหนัก 3</td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -140,29 +148,29 @@
               <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
             </td>
           </tr>
-          <td style=" padding: 5px; text-align: left;">
-            ความเข้าใจในการอพยพหนีไฟ (ผ่านแบบสอบถาม) <span>(น้ำหนัก 3)</span>
-          </td>
-          <td>
-            <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
-          </td>
-          <td>
-            <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
-          </td>
-          <td>
-            <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
-          </td>
-          <td>
-            <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
-          </td>
-          <tr>
-
-          </tr>
-
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล. <span>(น้ำหนัก 3)</span>
+              ความเข้าใจในการอพยพหนีไฟ 
             </td>
+            <td>น้ำหนัก 3</td>
+            <td>
+              <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
+            </td>
+          </tr>
+          <tr>
+            <td style=" padding: 5px; text-align: left;">
+              การจัดส่งเอกสารราชการเลยตามกำหนด ทส1,ทส 2, ร.1, สวล. 
+            </td>
+            <td>น้ำหนัก 3</td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -181,8 +189,9 @@
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ผลวิเคราะห์คุณภาพน้ำทิ้งไม่ผ่านเกณฑ์ (ผ่าน = 0 / ไม่ผ่าน =1) <span>(น้ำหนัก 5)</span>
+              ผลวิเคราะห์คุณภาพน้ำทิ้งไม่ผ่านเกณฑ์ (ผ่าน = 0 / ไม่ผ่าน =1) 
             </td>
+            <td>น้ำหนัก 5 </td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -198,8 +207,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              การคัดแยกขยะรีไซเคิล เทียบขยะทั้งหมด <span>(น้ำหนัก 5)</span>
+              การคัดแยกขยะรีไซเคิล เทียบขยะทั้งหมด 
             </td>
+            <td> น้ำหนัก 5 </td>
             <td>
               <input type="text" placeholder="ปริมาณขยะทั้งหมด">
               <br>
@@ -221,8 +231,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              จำนวนครั้งในการซักซ้อมเหตุฉุกเฉินของทีมงาน 1 ครั้ง / ไตรมาส <span>(น้ำหนัก 5)</span>
+              จำนวนครั้งในการซักซ้อมเหตุฉุกเฉินของทีมงาน 1 ครั้ง / ไตรมาส 
             </td>
+            <td>น้ำหนัก 5 </td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -238,8 +249,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ความพึงพอใจจากเจ้าของร่วม <span>(น้ำหนัก 7)</span>
+              ความพึงพอใจจากเจ้าของร่วม 
             </td>
+            <td>น้ำหนัก 7</td>
             <td>
               <input type="text" id="percent-input4" name="percent-input4" maxlength="3" placeholder="%">
             </td>
@@ -255,8 +267,9 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ความพึงพอใจจากคณะกรรมการ <span>(น้ำหนัก 8)</span>
+              ความพึงพอใจจากคณะกรรมการ 
             </td>
+            <td>น้ำหนัก 8</td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -271,30 +284,13 @@
             </td>
           </tr>
 
-          <th colspan="5">ข้อร้องเรียน </th>
+          <th colspan="7">ข้อร้องเรียน </th>
 
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              จำนวนข้อร้องเรียนเรื่อง Service Mind <span>(น้ำหนัก 3)</span>
+              จำนวนข้อร้องเรียนเรื่อง Service Mind 
             </td>
-            <td>
-              <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
-            </td>
-            <td>
-              <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
-            </td>
-          </tr>
-          <tr>
-            <td style=" padding: 5px; text-align: left;">
-              ข้อร้องเรียนด้าน Service น้อยกว่าปี 2565 <span>(น้ำหนัก 3)</span>
-            </td>
-
+            <td>น้ำหนัก 3</td>
             <td>
               <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
             </td>
@@ -310,8 +306,27 @@
           </tr>
           <tr>
             <td style=" padding: 5px; text-align: left;">
-              ผลการตรวจมาตรฐานการทำงานจาก QA ไม่ผ่านเกณฑ์ <span>(น้ำหนัก 30)</span>
+              ข้อร้องเรียนด้าน Service น้อยกว่าปี 2565 
             </td>
+            <td>น้ำหนัก 3</td>
+            <td>
+              <input type="number" id="num-input4" name="num-input4" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input5" name="num-input5" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input6" name="num-input6" max="50" maxlength="2">
+            </td>
+            <td>
+              <input type="number" id="num-input1" name="num-input1" max="50" maxlength="2">
+            </td>
+          </tr>
+          <tr>
+            <td style=" padding: 5px; text-align: left;">
+              ผลการตรวจมาตรฐานการทำงานจาก QA ไม่ผ่านเกณฑ์ 
+            </td>
+            <td>น้ำหนัก 30</td>
             <td>
               <input type="text" placeholder="จน.ครั้งปี 64">
               <br>
@@ -380,15 +395,6 @@ th {
   background-color: #4CAF50;
   color: white;
 }
-
-th.manulist {
-  position: static;
-  top: 0;
-  background-color: white;
-}
-
-
-
 input[type="number"],
 input[type="text"] {
   width: 100%;
@@ -484,6 +490,9 @@ tr.my-table-header>th {
   width: 150px;
 }
 
+.actual {
+  width: 150px;
+}
 
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
