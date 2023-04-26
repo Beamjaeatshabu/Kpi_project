@@ -1,4 +1,3 @@
-
 <template>
   <div class="center">
     <br>
@@ -20,24 +19,24 @@
     <br>
     <div class="container1">
       <div class="m">
-        <label for="thNameSelectBox">เดือน</label>
-        <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
-          <option value="01">มกราคม</option>
-          <option value="02">กุมภาพันธ์</option>
-          <option value="03">มีนาคม</option>
-          <option value="04">เมษายน</option>
-          <option value="05">พฤษภาคม</option>
-          <option value="06">มิถุนายน</option>
-          <option value="07">กรกฎาคม</option>
-          <option value="08">สิงหาคม</option>
-          <option value="09">กันยายน</option>
-          <option value="10">ตุลาคม</option>
-          <option value="11">พฤศจิกายน</option>
-          <option value="12">ธันวาคม</option>
-        </select>
-      </div>
+  <input   type="checkbox" for="checkbox" id="checkbox" v-model="isChecked"> <span class="checkbox"> เดือน</span>
+  <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+    <option value="01">มกราคม</option>
+    <option value="02">กุมภาพันธ์</option>
+    <option value="03">มีนาคม</option>
+    <option value="04">เมษายน</option>
+    <option value="05">พฤษภาคม</option>
+    <option value="06">มิถุนายน</option>
+    <option value="07">กรกฎาคม</option>
+    <option value="08">สิงหาคม</option>
+    <option value="09">กันยายน</option>
+    <option value="10">ตุลาคม</option>
+    <option value="11">พฤศจิกายน</option>
+    <option value="12">ธันวาคม</option>
+  </select>
+</div>
       <div class="q">
-        <label for="thNameSelectBox">quarter</label>
+        <input   type="checkbox" for="checkbox" id="checkbox" v-model="isChecked"> <span class="checkbox">quarter</span>
         <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
           <option value="Q1"> Q1</option>
           <option value="Q2"> Q2</option>
@@ -46,7 +45,7 @@
         </select>
       </div>
       <div class="y">
-        <label for="thNameSelectBox">year</label>
+        <input   type="checkbox" for="checkbox" id="checkbox" v-model="isChecked"> <span class="checkbox">year</span>
         <select id="thNameSelectBox" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
           <option value="option1">ตัวเลือกที่ 1</option>
           <option value="option2">ตัวเลือกที่ 2</option>
@@ -402,7 +401,6 @@ label {
 }
 
 select {
-
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #ccc;
@@ -539,7 +537,7 @@ tbody tr:hover {
   background-color: #ddd;
 }
 
-.container1 {
+.container1{
   display: grid;
   grid-template-columns: auto auto;
   /* แบ่ง column เป็นสองส่วน */
@@ -553,6 +551,12 @@ tbody tr:hover {
 .y {
   grid-row: 1;
   /* ให้ทั้งสาม element อยู่ใน row เดียวกัน */
+}
+
+span.checkbox{
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
 }
 </style>
 

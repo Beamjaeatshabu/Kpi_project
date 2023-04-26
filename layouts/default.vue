@@ -1,4 +1,4 @@
-<template>
+<template> 
   <v-app light>
     <v-navigation-drawer
       v-model="drawer"
@@ -56,11 +56,6 @@
         items: [
           {
             icon: '',
-            title: 'หน้าหลัก',
-            to: '/'
-          },
-          {
-            icon: '',
             title: 'หัวข้อหลักประเมินงานKpi',
             to: '/KeyPerformanceIndicator'
           },
@@ -83,7 +78,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'ประเมินKpi'
+        title: ' '
       }
     }
   }
