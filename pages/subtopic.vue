@@ -57,6 +57,7 @@
 
 <script scoped>
 export default {
+  middleware: 'auth',
   data() {
     return {
       selectedItem: "",
