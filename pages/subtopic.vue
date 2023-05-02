@@ -1,151 +1,166 @@
 <template>
   <div class="container">
+    <h1 style="font-family:'Kanit', sans-serif;">กำหนดกลุ่มหัวข้อการประเมิน</h1>
+    <div class="long-line"></div>
+    <br>
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Search...">
+      <button type="submit" class="search-button">Search</button>
+    </div>
+
     <div>
-      <h2>หัวข้อหลักการประเมิน</h2>
-      <div class="select-wrapper">
-        <label for="evaluation-level">หัวข้อหลักการประเมิน:</label>
-        <select v-model="selectedItem" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
-          <option disabled value="">-- โปรดเลือกรายการ --</option>
-          <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
-        </select>
-      </div>
-
-      <div>
-        <label class="label" for="evaluation-title">หัวข้อประเมิน:</label>
-        <input id="evaluation-title" v-model="evaluationTitle" class="input" type="text" name="evaluation-title" />
-      </div>
-
-      <div>
-        <h2>เกณฑ์การประเมิน</h2>
-        <label for="evaluation-level">เลือกระดับการประเมิน:</label>
+    <label for="evaluation-level">กลุ่มหัวข้อประเมิน :</label>
         <div class="container1">
           <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
             <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
             <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
           </select>
-          <label for="evaluation-comment"> </label>
-          <input class="comment1" id="evaluation-comment" v-model="comment" type="text" name="evaluation-comment">
         </div>
+
+    <div>
+      <form>
+        <div>
+          <label for="short-title">รหัสกลุ่มการประเมิน :</label>
+          <input id="short-title" v-model="shortTitle" type="text" />
+        </div>
+        <div>
+          <label for="sub-title">ชื่อกลุ่มการประเมิน :</label>
+          <input id="sub-title" v-model="subTitle" type="text" />
+        </div>
+        <div>
+          <label for="description">คำอธิบาย:</label>
+          <textarea input id="description" v-model="description" type="text"></textarea>
+          <br>
+          <br>
+          <div class="radio">
+            <input id="active" v-model="selectedOption" type="radio" value="active" />
+            <label for="active">Active</label>
+            <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
+            <label for="inactive">Inactive</label>
+          </div>
+          <br>
+          <div class="button-container">
+            <v-btn icon @click="submit">
+              <v-icon style="color: white; width: 30px; height: 20px;">mdi-plus-box</v-icon>
+            </v-btn>
+            <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
+              เพื่อแสดงข้อมูลในตาราง</p>
+          </div>
+        </div>
+
+      </form>
+      <div>
+        <button @click="back" class="back">กลับ</button>
+        <button @click="cancel" class="cancel">ยกเลิก</button>
+        <button @click="save" class="save">บันทึก</button>
       </div>
-
-      <button class="click" @click="back">กลับ</button>
-      <button class="click" @click="cancel">ยกเลิก</button>
-      <button class="click" @click="save">บันทึกข้อมูล</button>
-      <button class="click" @click="submit">เพิ่ม</button>
+      <div v-if="showTable" class="datagrid">
+        <table>
+          <thead>
+            <tr>
+              <th>หัวข้อย่อ</th>
+              <th>ชื่อหัวข้อย่อย</th>
+              <th>คำอธิบาย</th>
+              <th>สถานะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in items" :key="index">
+              <td>{{ item.shortTitle }}</td>
+              <td>{{ item.subTitle }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-    <table v-if="showResult">
-      <thead>
-        <tr>
-          <th>หัวข้อที่</th>
-          <th>หัวข้อประเมิน</th>
-          <th>เกณฑ์การประเมิน</th>
-          <!-- <th>ความคิดเห็น</th> -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(evaluation, index) in evaluations" :key="index">
-          <td>{{ evaluation.selectedItem }}</td>
-          <td>{{ evaluation.evaluationTitle }}</td>
-          <td>{{ evaluation.selectedLevel }}</td>
-          <!-- <td>{{ evaluation.comment }}</td> -->
-        </tr>
-      </tbody>
-    </table>
+  </div>
   </div>
 </template>
 
 <script scoped>
+
 export default {
   data() {
     return {
-      selectedItem: "",
-      items: [
-        { label: "รายการที่ 1", value: "1" },
-        { label: "รายการที่ 2", value: "2" },
-        { label: "รายการที่ 3", value: "3" },
-      ],
-      evaluationTitle: "",
-      selectedLevel: "",
-      evaluationLevels: ["<>", "≥", "≠"],
-      comment: "",
-      evaluations: [],
-      showResult: false,
-    };
+      shortTitle: '',
+      subTitle: '',
+      description: '',
+      selectedOption: 'active',
+      items: [],
+      showTable: false
+    }
   },
   methods: {
     submit() {
-      if (
-        this.selectedItem === "" ||
-        this.evaluationTitle === "" ||
-        this.selectedLevel === ""
-      ) {
-        alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
+      if (!this.shortTitle || !this.subTitle || !this.description) {
+        alert('กรุณากรอกข้อมูลให้ครบทุกช่อง')
         return;
       }
-      const evaluation = {
-        selectedItem: this.selectedItem,
-        evaluationTitle: this.evaluationTitle,
-        selectedLevel: this.selectedLevel,
-        comment: this.comment, // เพิ่ม comment ที่หายไป
-      };
-      this.evaluations.push(evaluation);
-      this.selectedItem = "";
-      this.evaluationTitle = "";
-      this.selectedLevel = "";
-      this.comment = "";
-      this.showResult = true;
-    },
-    save() {
-      if (this.evaluations.length === 0) {
-        alert("ไม่มีข้อมูลบันทึก");
-        return;
+
+      const newItem = {
+        shortTitle: this.shortTitle,
+        subTitle: this.subTitle,
+        description: this.description,
+        status: this.selectedOption
       }
-      alert("บันทึกข้อมูลสำเร็จ");
-      this.showData();
-    },
-    showData() {
-      if (this.evaluations.length === 0) {
-        alert("ไม่มีข้อมูลที่บันทึก");
-      } else {
-        // eslint-disable-next-line no-console
-        console.log(this.evaluations);
-      }
+      this.items.push(newItem)
+      this.clearForm()
+      this.showTable = true
     },
     cancel() {
-      this.selectedItem = "";
-      this.evaluationTitle = "";
-      this.selectedLevel = "";
-      this.comment = "";
-      this.evaluations = [];
-      this.showResult = false;
+      this.clearForm()
+      this.clearTable()
+      this.hideTable()
+    },
+    clearTable() {
+      this.items = []
+    },
+    save() {
+      if (!this.showTable) {
+        alert('กรุณากดเครื่องหมาย + เพื่อแสดงข้อมูลในตาราง')
+        return;
+      }
+
+      // Code to save data goes here
+      alert("บันทึกข้อมูลสำเร็จ");
+    },
+    clearForm() {
+      this.shortTitle = ''
+      this.subTitle = ''
+      this.description = ''
+      this.selectedOption = 'active'
+    },
+    hideTable() {
+      this.showTable = false
     },
     back() {
       this.$router.push('/')
     },
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
-/* กำหนดฟอนต์ให้กับตัวอักษรทั้งหมด */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+.my-component {
   font-family: 'Kanit', sans-serif;
 }
 
-/* กำหนดขนาดฟอนต์และรูปแบบของข้อความ */
 h2 {
   font-size: 24px;
   font-weight: bold;
+  font-family: 'Kanit', sans-serif;
 }
 
 label {
   font-size: 18px;
   font-weight: bold;
+  font-family: 'Kanit', sans-serif;
 }
-
-/* กำหนดรูปแบบเลือกตัวเลือก */
-select {
+#evaluation-level{
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 4px;
@@ -154,10 +169,9 @@ select {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
-
-/* กำหนดรูปแบบช่องกรอกข้อมูล */
-input {
+input[type="text"] {
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 4px;
@@ -166,44 +180,48 @@ input {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-#evaluation-comment {
-  box-sizing: border-box;
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+textarea {
   width: 100%;
-  margin-bottom: 10px;
-  font-family: 'Kanit', sans-serif;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.container1 {
-  display: grid;
-  grid-template-columns: auto auto;
-  /* แบ่ง column เป็นสองส่วน */
-  gap: 10px;
-  /* เว้นระยะห่างระหว่างสอง element */
+.button-container {
+  display: flex;
+  align-items: center;
 }
 
-#evaluation-level,
-#evaluation-comment {
-  grid-row: 1;
-  /* ให้ทั้งสอง element อยู่ใน row เดียวกัน */
+.radio{
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  width: 20%;
 }
 
+.warn {
+  display: none;
+  color: red;
+  margin: 0;
+}
 
-
-label[for="evaluation-comment"] {
-  font-size: 18px;
-  font-weight: bold;
+.show {
   display: block;
-  margin-bottom: 12px;
 }
 
-/* กำหนดรูปแบบปุ่ม */
 button {
+  background-color: darkgreen;
+  border: none;
+  color: #fff;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -213,30 +231,39 @@ button {
   margin-right: 10px;
   margin-bottom: 20px;
   cursor: pointer;
-  background-color: darkgreen;
-  border: none;
-  color: white;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Kanit', sans-serif;
 }
 
 button:hover {
   background-color: darkgreen;
 }
 
-button:active {
-  background-color: #3d99a1;
-  transform: translateY(2px);
-}
-
-.click {
+.cancel {
   float: right;
 }
 
-/* กำหนดรูปแบบตาราง */
+.save {
+  float: right;
+}
+
+.back {
+  float: right;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
   font-family: 'Kanit', sans-serif;
+}
+
+.long-line {
+  border-top: 2px solid #ddd;
+  /* เส้นแนวนอนสีเทาเข้ม */
+  height: 1px;
+  /* ความสูงของเส้นแนวนอน */
+  width: 100%;
+  /* กว้างเท่ากับขนาดของ container */
 }
 
 th,
@@ -258,10 +285,4 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
   background-color: #ddd;
-}
-
-/* ย้ายไอคอนแสดงผลจากขวาไปซ้าย */
-.mdi {
-  float: left;
-}
-</style>
+}</style>

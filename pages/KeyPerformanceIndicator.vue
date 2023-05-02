@@ -1,13 +1,15 @@
 <template>
   <div class="container">
+    <h1 style="font-family:'Kanit', sans-serif;">กำหนดกลุ่มหัวข้อการประเมิน</h1>
+    <div class="long-line"></div>
     <div>
       <form>
         <div>
-          <label for="short-title">หัวข้อย่อย:</label>
+          <label for="short-title">รหัสกลุ่มการประเมิน :</label>
           <input id="short-title" v-model="shortTitle" type="text" />
         </div>
         <div>
-          <label for="sub-title">ชื่อหัวข้อย่อย:</label>
+          <label for="sub-title">ชื่อกลุ่มการประเมิน :</label>
           <input id="sub-title" v-model="subTitle" type="text" />
         </div>
         <div>
@@ -148,6 +150,7 @@ input[type="text"] {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 textarea {
   width: 100%;
@@ -158,9 +161,8 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
   resize: none;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
-
-
 
 .button-container {
   display: flex;
@@ -216,7 +218,11 @@ table {
   width: 100%;
   font-family: 'Kanit', sans-serif;
 }
-
+.long-line {
+  border-top: 2px solid #ddd; /* เส้นแนวนอนสีเทาเข้ม */
+  height: 1px; /* ความสูงของเส้นแนวนอน */
+  width: 100%; /* กว้างเท่ากับขนาดของ container */
+}
 th,
 td {
   text-align: center;

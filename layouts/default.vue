@@ -6,8 +6,9 @@
       :clipped="clipped"
       fixed
       app
+      style="background-color: #382c;"
     >
-      <v-list>
+      <v-list >
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -15,11 +16,9 @@
           router
           exact
         >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+
+          <v-list-item-content >
+            <v-list-item-title >{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -56,22 +55,32 @@
         items: [
           {
             icon: '',
-            title: 'หัวข้อหลักประเมินงานKpi',
+            title: 'กลุ่มหัวข้อหลักประเมิน KPI',
             to: '/KeyPerformanceIndicator'
           },
           {
             icon: '',
-            title: 'หัวข้อย่อยKpi',
+            title: 'หัวข้อหลักประเมิน KPI',
             to: '/subtopic'
           },
           {
             icon: '',
-            title: 'ประเมินKpi',
+            title: 'หัวข้อย่อยประเมิน KPI',
             to: '/report'
           },
           {
             icon: '',
-            title: 'รายงาน',
+            title: 'การกำหนดหัวข้อประเมิน',
+            to: '/inspire'
+          },
+          {
+            icon: '',
+            title: 'การประเมิน KPI ประจำปี',
+            to: '/inspire'
+          },
+          {
+            icon: '',
+            title: 'รายงานการประเมิน',
             to: '/inspire'
           },
         ],
@@ -91,8 +100,10 @@
 body,
 .v-toolbar__title,
 .v-list-item__title {
-  font-family: 'Kanit', sans-serif;
   color: white;
+}
+.v-navigation-drawer__content{
+background-color: #2a8445;
 }
 
 /* Change the background color of the toolbar */
