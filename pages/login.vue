@@ -30,7 +30,7 @@ export default {
           password: this.password
         };
         await this.$auth.loginWith('local', { data: payload })
-        this.$router.push('/');
+        this.$router.push('/KeyPerformanceIndicator');
       } catch (e) {
         this.$router.push('/login');
       }

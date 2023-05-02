@@ -14,9 +14,7 @@
           :key="i"
           :to="item.to"
           router
-          exact
-        >
-
+          exact>
           <v-list-item-content >
             <v-list-item-title >{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -25,9 +23,8 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title><img src="logolpp2.jpg"  height="40" alt="Logo"></v-toolbar-title>
+      <v-toolbar-title><img src="logolpp2.jpg"  height="40" alt="Logo"> </v-toolbar-title>
       <v-spacer />
-
       <!-- ปุ่ม Logout -->
       <v-btn v-if="!visible" to="/login">
         Login
@@ -57,11 +54,6 @@
         fixed: false,
         visible: true,
         items: [
-           {
-            icon: '',
-            title: 'หน้าล็อคอิน',
-            to: '/login'
-          },
           {
             icon: '',
             title: 'กลุ่มหัวข้อหลักประเมิน KPI',
@@ -75,17 +67,17 @@
           {
             icon: '',
             title: 'หัวข้อย่อยประเมิน KPI',
-            to: '/report'
+            to: '/subtopic1'
           },
           {
             icon: '',
             title: 'การกำหนดหัวข้อประเมิน',
-            to: '/inspire'
+            to: '/evaluationtopics'
           },
           {
             icon: '',
             title: 'การประเมิน KPI ประจำปี',
-            to: '/inspire'
+            to: '/regularyear'
           },
           {
             icon: '',
@@ -96,7 +88,7 @@
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: ' '
+        title: 'ประเมิน KPI '
       }
     },
     mounted() {

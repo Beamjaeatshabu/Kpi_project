@@ -27,7 +27,7 @@ router.post('/login', (req, res) => {
 
   // query db.
 
-  if (email === 'admin@admin.com' && password === '123456') {
+  if (email === 'admin' && password === '123456') {
     return res.json({
       data: {
         user,
