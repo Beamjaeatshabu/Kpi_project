@@ -1,11 +1,13 @@
 <template> 
   <v-app light>
     <v-navigation-drawer
+      v-if="$route.path !== '/login'"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
       app
+      class="v-navigation-drawer--open"
       style="background-color: #382c;"
     >
       <v-list >
@@ -21,7 +23,11 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title><img src="logolpp2.jpg"  height="40" alt="Logo"> </v-toolbar-title>
       <v-spacer />
@@ -43,6 +49,7 @@
     </v-footer>
   </v-app>
 </template>
+
 
 <script>
   export default {

@@ -288,7 +288,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-family: 'Kanit', sans-serif;
-    float: right;
+    display: right;
 }
 
 button:hover {
