@@ -63,6 +63,7 @@
 <script scoped>
 
 export default {
+  middleware: 'auth',
   data() {
     return {
       shortTitle: '',

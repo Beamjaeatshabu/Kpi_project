@@ -29,7 +29,10 @@
       <v-spacer />
 
       <!-- ปุ่ม Logout -->
-      <v-btn text @click="logout">
+      <v-btn v-if="!visible" to="/login">
+        Login
+      </v-btn>
+      <v-btn v-if="visible" @click="logout">
         Logout
       </v-btn>
     </v-app-bar>
@@ -52,7 +55,13 @@
         clipped: false,
         drawer: false,
         fixed: false,
+        visible: true,
         items: [
+           {
+            icon: '',
+            title: 'หน้าล็อคอิน',
+            to: '/login'
+          },
           {
             icon: '',
             title: 'กลุ่มหัวข้อหลักประเมิน KPI',
@@ -89,6 +98,23 @@
         rightDrawer: false,
         title: ' '
       }
+    },
+    mounted() {
+      this.visible_btn()
+    },
+    methods: {
+      async visible_btn() {
+        this.visible = this.$auth.loggedIn;
+      },
+      async logout() {
+        await this.$auth.logout();
+        this.$router.push('/login');
+      }
+    },
+    watch: {
+      $route() {
+          location.reload();
+      },
     }
   }
   </script>

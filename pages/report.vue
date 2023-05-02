@@ -563,6 +563,7 @@ span.checkbox{
 <script scoped>
 
 export default {
+  middleware: 'auth',
   data() {
     return {
       selectedQuarter: "Q1",
