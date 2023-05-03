@@ -4,73 +4,77 @@
     <div class="long-line"></div>
     <br>
     <div>
-    <label for="evaluation-level">หัวข้อหลักประเมิน  :</label>
-        <div class="container1">
-          <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
-            <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
-            <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
-          </select>
-        </div>
-
-    <div>
-      <form>
-        <div>
-          <label for="short-title">หัวข้อประเมิน  :</label>
-          <input id="short-title" v-model="shortTitle" type="text" />
-        </div>
-        <div>
-          <label for="sub-title">ชื่อข้อประเมิน :</label>
-          <input id="sub-title" v-model="subTitle" type="text" />
-        </div>
-        <div>
-          <label for="description">คำอธิบาย:</label>
-          <textarea input id="description" v-model="description" type="text"></textarea>
-          <br>
-          <br>
-          <div class="radio">
-            <input id="active" v-model="selectedOption" type="radio" value="active" />
-            <label for="active">Active</label>
-            <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
-            <label for="inactive">Inactive</label>
-          </div>
-          <br>
-          <div class="button-container">
-            <v-btn icon @click="submit" class="plus">
-              <v-icon style="color: white; width: 30px; height: 20px;">mdi-plus-box</v-icon>
-            </v-btn>
-            <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
-              เพื่อแสดงข้อมูลในตาราง</p>
-          </div>
-        </div>
-
-      </form>
-      <div>
-        <button @click="back" class="back">กลับ</button>
-        <button @click="cancel" class="cancel">ยกเลิก</button>
-        <button @click="save" class="save">บันทึก</button>
+      <label for="evaluation-level">หัวข้อหลักประเมิน :</label>
+      <div class="container1">
+        <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level"
+          style="-webkit-appearance: listbox; -moz-appearance: listbox;">
+          <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
+          <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
+        </select>
       </div>
-      <div v-if="showTable" class="datagrid">
-        <table>
-          <thead>
-            <tr>
-              <th>หัวข้อย่อ</th>
-              <th>ชื่อหัวข้อย่อย</th>
-              <th>คำอธิบาย</th>
-              <th>สถานะ</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in items" :key="index">
-              <td>{{ item.shortTitle }}</td>
-              <td>{{ item.subTitle }}</td>
-              <td>{{ item.description }}</td>
-              <td>{{ item.status }}</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div>
+        <form>
+          <div>
+            <label for="short-title">หัวข้อประเมิน :</label>
+            <input id="short-title" v-model="shortTitle" type="text" />
+          </div>
+          <div>
+            <label for="sub-title">ชื่อข้อประเมิน :</label>
+            <input id="sub-title" v-model="subTitle" type="text" />
+          </div>
+          <div>
+            <label for="description">คำอธิบาย :</label>
+            <textarea input id="description" v-model="description" type="text"></textarea>
+            <br>
+            <br>
+            <div class="radio">
+              <input id="active" v-model="selectedOption" type="radio" value="active" />
+              <label for="active">Active</label>
+              <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
+              <label for="inactive">Inactive</label>
+
+            </div>
+
+            <br>
+            <v-btn icon @click="submit" style="margin:-50px; margin-left:initial; position: relative; right: -200px; top: -62px;">
+              <v-icon style="color: white; width: 30px; height: 20px;  margin: 0px;">mdi-plus-box</v-icon>
+            </v-btn>
+
+            <div class="button-container">
+              <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
+                เพื่อแสดงข้อมูลในตาราง</p>
+            </div>
+          </div>
+        </form>
+
+        <div>
+          <button @click="back" class="back">กลับ</button>
+          <button @click="cancel" class="cancel">ยกเลิก</button>
+          <button @click="save" class="save">บันทึก</button>
+        </div>
+        <div v-if="showTable" class="datagrid">
+          <table>
+            <thead>
+              <tr>
+                <th>หัวข้อย่อ</th>
+                <th>ชื่อหัวข้อย่อย</th>
+                <th>คำอธิบาย</th>
+                <th>สถานะ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in items" :key="index">
+                <td>{{ item.shortTitle }}</td>
+                <td>{{ item.subTitle }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -156,7 +160,8 @@ label {
   font-weight: bold;
   font-family: 'Kanit', sans-serif;
 }
-#evaluation-level{
+
+#evaluation-level {
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 4px;
@@ -165,7 +170,9 @@ label {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
+
 input[type="text"] {
   box-sizing: border-box;
   padding: 8px 12px;
@@ -175,6 +182,7 @@ input[type="text"] {
   width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 textarea {
@@ -186,6 +194,12 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
   resize: none;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
 }
 
 .button-container {
@@ -198,8 +212,12 @@ textarea {
   padding: 10px;
   background-color: #ccc;
   border-radius: 5px;
-  width: 20%;
+  width: 190px;
+  height: 50px;
+  position: relative;
 }
+
+
 
 .warn {
   display: none;
@@ -226,6 +244,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {

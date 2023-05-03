@@ -49,7 +49,7 @@ export default {
   },
   // optional
   axios: {
-    baseURL: 'http://localhost:3000/api'
+    baseURL: 'http://172.17.4.251:3000/api'
   },
   auth: {
     strategies: {

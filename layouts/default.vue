@@ -51,6 +51,8 @@
 </template>
 
 
+
+
 <script>
   export default {
     name: 'DefaultLayout',
@@ -89,7 +91,7 @@
           {
             icon: '',
             title: 'รายงานการประเมิน',
-            to: '/inspire'
+            to: '/report'
           },
         ],
         miniVariant: false,

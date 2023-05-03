@@ -7,7 +7,7 @@
       <input type="text" class="search-input" placeholder="Search...">
       <button type="submit" class="search-button">Search</button>
     </div>
-
+<br>
     <div>
     <label for="evaluation-level">กลุ่มหัวข้อประเมิน :</label>
         <div class="container1">
@@ -28,21 +28,23 @@
           <input id="sub-title" v-model="subTitle" type="text" />
         </div>
         <div>
-          <label for="description">คำอธิบาย:</label>
+          <label for="description">คำอธิบาย :</label>
           <textarea input id="description" v-model="description" type="text"></textarea>
           <br>
           <br>
           <div class="radio">
-            <input id="active" v-model="selectedOption" type="radio" value="active" />
-            <label for="active">Active</label>
-            <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
-            <label for="inactive">Inactive</label>
-          </div>
-          <br>
-          <div class="button-container">
-            <v-btn icon @click="submit">
-              <v-icon style="color: white; width: 30px; height: 20px;">mdi-plus-box</v-icon>
+              <input id="active" v-model="selectedOption" type="radio" value="active" />
+              <label for="active">Active</label>
+              <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
+              <label for="inactive">Inactive</label>
+
+            </div>
+
+            <br>
+            <v-btn icon @click="submit" style="margin:-50px; margin-left:initial; position: relative; right: -200px; top: -62px;">
+              <v-icon style="color: white; width: 30px; height: 20px;  margin: 0px;">mdi-plus-box</v-icon>
             </v-btn>
+            <div class="button-container">
             <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
               เพื่อแสดงข้อมูลในตาราง</p>
           </div>
@@ -206,9 +208,10 @@ textarea {
   padding: 10px;
   background-color: #ccc;
   border-radius: 5px;
-  width: 20%;
+  width: 190px;
+  height: 50px;
+  position: relative;
 }
-
 .warn {
   display: none;
   color: red;
@@ -234,6 +237,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 button:hover {
@@ -286,4 +290,8 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
   background-color: #ddd;
-}</style>
+}
+.search-button{
+  float: right ;
+}
+</style>

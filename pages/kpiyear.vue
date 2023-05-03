@@ -36,7 +36,6 @@
                         <th class="two">2</th>
                         <th class="one">1</th>
                         <th class="zero">0</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -168,7 +167,13 @@
                 </tbody>
             </table>
         </form>
-        <br>
+        <br> 
+        <router-link to="/evaluationtopics">
+            <button>ยกเลิก</button>
+        </router-link>  
+        <router-link to="/evaluationtopics">
+            <button>บันทึก</button>
+        </router-link>
         <router-link to="/evaluationtopics">
             <button>กลับ</button>
         </router-link>
@@ -288,7 +293,8 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-family: 'Kanit', sans-serif;
-    display: right;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    float: right;
 }
 
 button:hover {

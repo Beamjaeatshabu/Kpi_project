@@ -77,7 +77,13 @@
             </table>
         </form>
         <br>
-        <router-link to="/regularyear">
+        <router-link to="/evaluationtopics">
+            <button>บันทึก</button>
+        </router-link>
+        <router-link to="/evaluationtopics">
+            <button>ยกเลิก</button>
+        </router-link>
+        <router-link to="/evaluationtopics">
             <button>กลับ</button>
         </router-link>
     </div>
@@ -143,7 +149,8 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-family: 'Kanit', sans-serif;
-    display: right;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    float: right;
 }
 
 button:hover {
@@ -156,5 +163,16 @@ button:hover {
   /* ความสูงของเส้นแนวนอน */
   width: 100%;
   /* กว้างเท่ากับขนาดของ container */
+}
+input[type="text"] {
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    color: #000000;
+    /* เพิ่มโค้ดสีข้อความ */
+    font-family: 'Kanit', sans-serif;
 }
 </style>

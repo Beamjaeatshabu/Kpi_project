@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 style="font-family:'Kanit', sans-serif;">กำหนดกลุ่มหัวข้อการประเมิน</h1>
+    <h1 style="font-family:'Kanit', sans-serif;">กำหนดหัวข้อหลักการประเมิน</h1>
     <div class="long-line"></div>
     <div>
       <form>
@@ -196,6 +196,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: 'Kanit', sans-serif;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 button:hover {
