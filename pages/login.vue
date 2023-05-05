@@ -14,7 +14,7 @@
       <div class="long-line"></div>
     </form>
     <div>
-      <img src="services.jpg" alt="Alternative Text" class="my-image">
+      <img src="SERVICES30.jpg" alt="Alternative Text" class="my-image">
   </div>
   </div>
 </template>
@@ -116,7 +116,9 @@ button {
   right: -120px;
 }
 .my-image{
-  width: 20%;
+  width: 100%;
+  position: relative;
+  top: -40px;
 }
 
 @media (max-width: 767px) {
