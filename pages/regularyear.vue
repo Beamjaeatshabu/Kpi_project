@@ -20,22 +20,22 @@
       <option value="01"> </option>
     </select>
 
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(F) Facility Management : การบริหารจัดการทรัพย์ส่วนกลาง</button>
     </router-link>
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(A) Activity Management : การบริหารจัดการกิจกรรม</button>
     </router-link>
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(L) Life Quality and Legal Management : การบริหารจัดการคุณภาพชีวิตและกฏหมายกำหนด</button>
     </router-link>
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(E) Environment Management: การบริหารจัดการสิ่งแวดล้อม</button>
     </router-link>
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(B) Budgeting Management :การบริหารจัดการงบประมาณ</button>
     </router-link>
-    <router-link to="/regularKPIs">
+    <router-link to="/regularKPIs" target="_blank">
       <button>(P) People Management : การบริหารจัดการผู้ที่เกี่ยวข้อง</button>
     </router-link>
     </div>
@@ -83,5 +83,23 @@ select {
   width: 25%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+}
+@media (max-width: 767px) {
+  span {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+select {
+  box-sizing: border-box;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 19%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+}
+
 }
 </style>

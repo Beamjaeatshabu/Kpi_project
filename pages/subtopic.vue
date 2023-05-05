@@ -5,27 +5,22 @@
     <br>
     <div class="search-box">
       <input type="text" class="search-input" placeholder="Search...">
-      <button type="submit" class="search-button">Search</button>
+      <!-- <button type="submit" class="search-button">Search</button> -->
     </div>
 <br>
-    <div>
-    <label for="evaluation-level">กลุ่มหัวข้อประเมิน :</label>
-        <div class="container1">
+      <form> 
+        <label for="evaluation-level">กลุ่มหัวข้อประเมิน :</label>
           <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level" style="-webkit-appearance: listbox; -moz-appearance: listbox;">
             <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
             <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
           </select>
-        </div>
-
-    <div>
-      <form>
         <div>
           <label for="short-title">รหัสกลุ่มการประเมิน :</label>
-          <input id="short-title" v-model="shortTitle" type="text" />
+          <input id="short-title" v-model="shortTitle" type="text" class="short-title"/>
         </div>
         <div>
           <label for="sub-title">ชื่อกลุ่มการประเมิน :</label>
-          <input id="sub-title" v-model="subTitle" type="text" />
+          <input id="sub-title" v-model="subTitle" type="text" class="sub-title"/>
         </div>
         <div>
           <label for="description">คำอธิบาย :</label>
@@ -37,7 +32,6 @@
               <label for="active">Active</label>
               <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
               <label for="inactive">Inactive</label>
-
             </div>
 
             <br>
@@ -77,8 +71,6 @@
         </table>
       </div>
     </div>
-  </div>
-  </div>
 </template>
 
 <script scoped>
@@ -169,12 +161,13 @@ label {
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
-  width: 100%;
+  width: 79%;
+  position: relative;
+  right: -29px;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
-input[type="text"] {
+/* input[type="text"] {
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 4px;
@@ -184,8 +177,42 @@ input[type="text"] {
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+} */
+.sub-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  right: -20px;
+  width: 79%;
 }
-
+.short-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  right: -11px;
+  width: 79%;
+}
+.search-input{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  width: 100%;
+}
 textarea {
   width: 100%;
   height: 150px;
@@ -195,7 +222,6 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
   resize: none;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .button-container {
@@ -237,7 +263,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 button:hover {
@@ -293,5 +318,56 @@ tbody tr:hover {
 }
 .search-button{
   float: right ;
+}
+@media (max-width: 767px) {
+
+  .sub-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  right: -13px;
+  width: 50%;
+}
+.short-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  right: -3px;
+  width: 50%;
+}
+.search-input{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  width: 90%;
+}
+#evaluation-level{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 50%;
+  position: relative;
+  right: -20px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+}
+
 }
 </style>

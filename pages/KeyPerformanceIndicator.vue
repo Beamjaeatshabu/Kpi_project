@@ -3,28 +3,35 @@
     <h1 style="font-family:'Kanit', sans-serif;">กำหนดหัวข้อหลักการประเมิน</h1>
     <div class="long-line"></div>
     <div>
+      <br>
       <form>
         <div>
           <label for="short-title">รหัสกลุ่มการประเมิน :</label>
-          <input id="short-title" v-model="shortTitle" type="text" />
+          <input id="short-title" v-model="shortTitle" type="text" class="short-title" />
         </div>
         <div>
           <label for="sub-title">ชื่อกลุ่มการประเมิน :</label>
-          <input id="sub-title" v-model="subTitle" type="text" />
+          <input id="sub-title" v-model="subTitle" type="text" class="sub-title"/>
         </div>
         <div>
           <label for="description">คำอธิบาย:</label>
           <textarea input id="description" v-model="description" type="text"></textarea>
-          <div>
-            <input id="active" v-model="selectedOption" type="radio" value="active" />
-            <label for="active">Active</label>
-            <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
-            <label for="inactive">Inactive</label>
-          </div>
-          <div class="button-container">
-            <v-btn icon @click="submit">
-              <v-icon  style="color: white; width: 30px; height: 20px;" >mdi-plus-box</v-icon>
+          <br>
+          <br>
+          <div class="radio">
+              <input id="active" v-model="selectedOption" type="radio" value="active" />
+              <label for="active">Active</label>
+              <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
+              <label for="inactive">Inactive</label>
+
+            </div>
+
+            <br>
+            <v-btn icon @click="submit" style="margin:-50px; margin-left:initial; position: relative; right: -200px; top: -62px;">
+              <v-icon style="color: white; width: 30px; height: 20px;  margin: 0px;">mdi-plus-box</v-icon>
             </v-btn>
+
+             <div class="button-container">
             <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
               เพื่อแสดงข้อมูลในตาราง</p>
           </div>
@@ -148,10 +155,36 @@ input[type="text"] {
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
-  width: 100%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
+  position: relative;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+.sub-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  right: -20px;
+  width: 79%;
+}
+.short-title{
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  right: -11px;
+  width: 79%;
 }
 textarea {
   width: 100%;
@@ -169,7 +202,15 @@ textarea {
   display: flex;
   align-items: center;
 }
-
+.radio {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  width: 190px;
+  height: 50px;
+  position: relative;
+}
 
 .warn {
   display: none;
@@ -245,4 +286,46 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #ddd;
 }
+
+/* สำหรับหน้าจอขนาดเล็ก (mobile) */
+@media (max-width: 767px) {
+
+  .sub-title{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+.short-title{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  left: 10px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+}
+
+}
+
+/* สำหรับหน้าจอขนาดกลาง (tablet) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* กำหนดรูปแบบที่ต้องการ */
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (desktop) */
+@media (min-width: 992px) {
+  /* กำหนดรูปแบบที่ต้องการ */
+}
+
 </style>

@@ -1,20 +1,15 @@
 <template>
   <div class="container">
-    <h1 style="font-family:'Kanit', sans-serif;">กำหนดกลุ่มหัวข้อการประเมิน</h1>
+    <h1 style="font-family:'Kanit', sans-serif;">กำหนดหัวย่อยการประเมิน</h1>
     <div class="long-line"></div>
     <br>
-    <div>
-      <label for="evaluation-level">หัวข้อหลักประเมิน :</label>
-      <div class="container1">
+        <form>   
+          <label for="evaluation-level">หัวข้อหลักประเมิน :</label>
         <select id="evaluation-level" class="main1" v-model="selectedLevel" name="evaluation-level"
           style="-webkit-appearance: listbox; -moz-appearance: listbox;">
           <option disabled value="">-- โปรดเลือกระดับการประเมิน --</option>
           <option v-for="(level, index) in evaluationLevels" :key="index" :value="level">{{ level }}</option>
         </select>
-      </div>
-
-      <div>
-        <form>
           <div>
             <label for="short-title">หัวข้อประเมิน :</label>
             <input id="short-title" v-model="shortTitle" type="text" />
@@ -33,14 +28,12 @@
               <label for="active">Active</label>
               <input id="inactive" v-model="selectedOption" type="radio" value="inactive" />
               <label for="inactive">Inactive</label>
-
             </div>
-
             <br>
-            <v-btn icon @click="submit" style="margin:-50px; margin-left:initial; position: relative; right: -200px; top: -62px;">
+            <v-btn icon @click="submit"
+              style="margin:-50px; margin-left:initial; position: relative; right: -200px; top: -62px;">
               <v-icon style="color: white; width: 30px; height: 20px;  margin: 0px;">mdi-plus-box</v-icon>
             </v-btn>
-
             <div class="button-container">
               <p v-if="!showTable && !shortTitle && !subTitle && !description" class="warn">กรุณากดเครื่องหมาย +
                 เพื่อแสดงข้อมูลในตาราง</p>
@@ -74,8 +67,6 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script scoped>
@@ -167,10 +158,11 @@ label {
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
-  width: 100%;
+  width: 80%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  position: relative;
+  left: 10px;
 }
 
 input[type="text"] {
@@ -179,10 +171,9 @@ input[type="text"] {
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
-  width: 100%;
+  width: 80%;
   margin-bottom: 10px;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 textarea {
@@ -194,7 +185,6 @@ textarea {
   border-radius: 4px;
   font-size: 16px;
   resize: none;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
 }
 
 .button-container {
@@ -207,7 +197,7 @@ textarea {
   align-items: center;
 }
 
-.radio{
+.radio {
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #ccc;
@@ -244,7 +234,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: 'Kanit', sans-serif;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
@@ -297,4 +286,32 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
   background-color: #ddd;
-}</style>
+}
+@media (max-width: 767px) {
+  #evaluation-level {
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 50%;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  left: 0px;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 50%;
+  position: relative;
+  left: 30px;
+  margin-bottom: 10px;
+  font-family: 'Kanit', sans-serif;
+}
+}
+</style>
